@@ -6,13 +6,10 @@ function createChildElement(x) {
 }
 
 function generateLocation() {
-    //Get window size for height and width
-    let width = screen.width;
-    let height = screen.height;
 
     //Randomize height and width between output and 0
-    this.x = Math.floor(Math.random() * width);
-    this.y = Math.floor(Math.random() * height);
+    this.x = Math.floor(Math.random() * window.innerWidth);
+    this.y = Math.floor(Math.random() * window.innerHeight);
 
 }
 
