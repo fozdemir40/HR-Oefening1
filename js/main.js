@@ -1,10 +1,3 @@
-//
-// bubble element
-//
-let bubble = document.createElement("bubble")
-bubble.style.transform = "translate(20vw, 100vh)"
-
-
 // Elementen toeveogen voor game element
 let game = document.getElementsByTagName("game")[0]
 
@@ -12,10 +5,7 @@ function createChildElement(x) {
     game.appendChild(x)
 }
 
-
-
-
-function generateFishLocation() {
+function generateLocation() {
     //Get window size for height and width
     let width = screen.width;
     let height = screen.height;
@@ -26,32 +16,29 @@ function generateFishLocation() {
 
 }
 
-function generateFishColor(){
+function generateFishColor() {
     let color = Math.floor(Math.random() * 360);
 
     return color
 }
 
+for (i = 0; i < 100; i++) {
+    //
+    // vis element
+    //
 
+    let fishLocation = new generateLocation()
+    let fish = document.createElement("fish")
+    fish.style.transform = `translate(${fishLocation.x}px, ${fishLocation.y}px)`
+    fish.style.filter = `hue-rotate(${generateFishColor()}deg)`
+    createChildElement(fish)
 
+    let bubbleLocation = new generateLocation()
+    //
+    // bubble element
+    //
+    let bubble = document.createElement("bubble")
+    bubble.style.transform = `translate(${bubbleLocation.x}px, ${bubbleLocation.y}px)`
+    createChildElement(bubble)
 
-
-let fishLocation = new generateFishLocation()
-console.log(`translate (${fishLocation.x}px, ${fishLocation.y}px)`)
-
-//
-// vis element
-//
-let fish = document.createElement("fish")
-fish.style.transform = `translate(${fishLocation.x}px, ${fishLocation.y}px)`
-fish.style.filter = `hue-rotate(${generateFishColor()}deg)`
-
-
-
-
-
-
-
-
-createChildElement(fish)
-createChildElement(bubble)
+}
